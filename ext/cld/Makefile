@@ -1,4 +1,4 @@
-CFLAGS=-fPIC -I. -O2 -DCLD_WINDOWS
+CFLAGS=-fPIC -I. -O2 -DCLD_WINDOWS -Wno-narrowing
 LDFLAGS=-L.
 CC=g++
 AR=ar
@@ -28,4 +28,4 @@ install:
 		rm -f libcld.a
 		$(CC) -c $(CFLAGS) $(SOURCES)
 		$(AR) rcs libcld.a *.o
-		$(CC) -DCLD_WINDOWS -I. -L. -shared -o cld.so -lstdc++ *.o
+		$(CC) -DCLD_WINDOWS -Wno-narrowing -I. -L. -shared -o cld.so -lstdc++ *.o
